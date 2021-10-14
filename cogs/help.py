@@ -6,7 +6,16 @@ from discord import colour
 from discord.ext import commands
 
 from cogs.util import util
-
+# 1️⃣ 키캡 디지트 원
+# 2️⃣ 키캡 숫자 2
+# 3️⃣ 키캡 숫자 3
+# 4️⃣ 키캡 숫자 4
+# 5️⃣ 키캡 숫자 5
+# 6️⃣ 키캡 숫자 6
+# 7️⃣ 키캡 디지트 세븐
+# 8️⃣ 키캡 숫자 8
+# 9️⃣ 키캡 숫자 나인
+# 🔟 키캡 : 10
 
 
 class help(commands.Cog):
@@ -29,6 +38,7 @@ class help(commands.Cog):
 2️⃣|2. 서버관리페이지 🔰 
 3️⃣|3. 코로나페이지 🧬
 4️⃣|4. 유틸리티페이지 🧰
+5️⃣|5. 게임페이지 🕹️
             
 [서포트서버](https://discord.gg/Jk6VRvsnqa)
             
@@ -36,7 +46,7 @@ class help(commands.Cog):
         """,
         colour=discord.Colour.random()
         )
-        main.set_footer(text=f"1 / 8페이지",icon_url=ctx.author.avatar_url)
+        main.set_footer(text=f"1 / 5페이지",icon_url=ctx.author.avatar_url)
 
 
         manage = discord.Embed(
@@ -66,7 +76,7 @@ class help(commands.Cog):
         manage.add_field(name="하람아 청소 [갯수]",
                          value="```\n메시지를 청소를 해요!\n```",
                          inline=False)
-        manage.set_footer(text=f"2 / 8페이지",icon_url=ctx.author.avatar_url)
+        manage.set_footer(text=f"2 / 5페이지",icon_url=ctx.author.avatar_url)
 
         covid = discord.Embed(
             title="코로나 🧬",
@@ -79,7 +89,7 @@ class help(commands.Cog):
         covid.add_field(name="하람아 코로나현황",
                         value="```\n현재 코로나현황을 알려드립니다.\n```",
                         inline=False)
-        covid.set_footer(text=f"3 / 8페이지",icon_url=ctx.author.avatar_url)
+        covid.set_footer(text=f"3 / 5페이지",icon_url=ctx.author.avatar_url)
 
         utili = discord.Embed(
             title="유틸리티 🧰",
@@ -105,16 +115,33 @@ class help(commands.Cog):
         utili.add_field(name="하람아 프사 @유저",
                         value="```\n맨션한 유저의 프사를 보여줍니다\n```",
                         inline=False)
-        utili.set_footer(text=f"4 / 8페이지",icon_url=ctx.author.avatar_url)
+        utili.set_footer(text=f"4 / 5페이지",icon_url=ctx.author.avatar_url)
 
+
+        games=discord.Embed(
+            title="게임 🕹️",
+            description="""
+게임명령어를 사용해서
+미니게임을 해보세요!
+            """,
+            colour=discord.Colour.random()
+        )
+        games.add_field(name="하람아 가위바위보",
+                        value="```\n가위바위보 게임\n```",
+                        inline=False)
+        games.add_field(name="하람아 주사위",
+                        value="```\n주사위를 돌려 누가 많이 나오는지 \n 내기를 해보세요!\n```",
+                        inline=False)
+        games.set_footer(text=f"5 / 5페이지",icon_url=ctx.author.avatar_url)
         desc = {
             "메인 페이지": "메뉴가 있는 메인페이지",
             "서버 관리 🔰": "서버 관리 명령어가 있는 페이지.",
             "코로나 🧬": "코로나 명령어가 있는 페이지",
             "유틸리티 🧰":"유틸리티 명령어가 있는 페이지",
+            "게임 🕹️":"게임 명령어가 있는 페이지"
         }
 
-        embeds = [main,manage,covid,utili]
+        embeds = [main,manage,covid,utili,games]
         e = Paginator(
             client=self.bot.components_manager,
             embeds=embeds,
