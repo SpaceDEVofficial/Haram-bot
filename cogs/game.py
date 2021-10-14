@@ -15,7 +15,7 @@ import time
 from discord.ext.commands.core import Command, command
 
 
-class game(commands.Cog, name = "게임 명령어", description = "게임 명령어 Cog입니다."):
+class game(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
     @commands.command(
